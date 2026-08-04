@@ -411,3 +411,8 @@ th{position:relative}
   .cc-clock{text-align:left}
   .cc-hero-tags{justify-content:flex-start}
 }
+
+/* chart sizing inside command-center cards */
+#view-dashboard .cc-card canvas{width:100%!important;height:270px!important;max-height:270px}
+#view-dashboard .cc-card .sec-card canvas,#view-dashboard .sec-card canvas{height:54px!important}
+#view-dashboard .sec-card canvas.spark{height:54px!important;max-height:54px}
