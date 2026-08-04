@@ -6,15 +6,19 @@ const SECTION_ORDER = ['HQ BN', '59 COY', '60 COY', '61 COY', 'MTPL', 'EME'];
 
 /* Heuristic detection of "special" columns — purely by header/value inspection. */
 function detectMeta(headers, rows) {
-  const find = (...pats) => headers.find(h => pats.some(p => norm(h).includes(p)));
+  // patterns are tried in priority order so "Collection Status" wins over "Marital Status"
+  const find = (...pats) => {
+    for (const p of pats) { const hit = headers.find(h => norm(h).includes(p)); if (hit) return hit; }
+    return undefined;
+  };
   const meta = {
-    id: find('personal no', 'army no', 'ba no', 'id', 'no.') || headers[0],
+    id: find('personal no', 'army no', 'ba no', 'personal', 'id') || headers[0],
     name: find('name'),
     rank: find('rank'),
-    section: find('coy', 'company', 'section', 'sec ', 'unit sec'),
-    collected: find('collect', 'status', 'received', 'submit'),
+    section: find('coy', 'company', 'section', 'unit sec'),
+    collected: find('collection status', 'collect', 'received', 'submit', 'status'),
     photo: find('photo', 'image', 'picture'),
-    date: find('date', 'update')
+    date: find('last update', 'update', 'collection date', 'date')
   };
   // categorical columns = low cardinality, good for filters + charts
   meta.categorical = headers.filter(h => {
