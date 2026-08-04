@@ -90,6 +90,9 @@ function startClock() {
     const d = new Date();
     $('#clockTime').textContent = d.toLocaleTimeString('en-GB');
     $('#clockDate').textContent = d.toLocaleDateString('en-GB', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' });
+    const ht = $('#heroTime'), hd = $('#heroDate');
+    if (ht) ht.textContent = d.toLocaleTimeString('en-GB');
+    if (hd) hd.textContent = d.toLocaleDateString('en-GB', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
   };
   tick(); setInterval(tick, 1000);
 }
