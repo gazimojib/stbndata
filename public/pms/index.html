@@ -126,16 +126,87 @@
     <main class="content" id="content">
       <!-- DASHBOARD -->
       <section class="view" id="view-dashboard">
-        <div class="page-head">
-          <div><h2 class="page-title">Command Dashboard</h2><p class="page-sub" id="dataSourceLabel">Sample dataset loaded — upload the Collection Sheet to go live.</p></div>
-          <label class="btn btn-grad btn-sm"><i class="bi bi-upload me-2"></i>Upload Excel<input type="file" class="d-none excel-alt" accept=".xlsx,.xls,.csv" /></label>
+
+        <!-- HERO -->
+        <header class="cc-hero" data-aos="fade-down">
+          <div class="cc-hero-bg"><span></span><span></span><span></span><i class="cc-grid"></i></div>
+          <div class="cc-hero-inner">
+            <img src="assets/logo.png" alt="35 ST Battalion logo" class="cc-hero-logo" />
+            <div class="cc-hero-txt">
+              <span class="cc-eyebrow"><i class="bi bi-broadcast"></i> Command Center · Live</span>
+              <h1>35 ST Battalion</h1>
+              <p class="cc-hero-sub">Personnel Management System</p>
+              <p class="cc-motto">“We Infuse Life Into The Battle”</p>
+            </div>
+            <div class="cc-hero-meta">
+              <div class="cc-clock"><strong id="heroTime">--:--:--</strong><span id="heroDate">—</span></div>
+              <div class="cc-hero-tags">
+                <span class="cc-tag" id="heroRecords">0 records</span>
+                <span class="cc-tag" id="heroCols">0 columns</span>
+              </div>
+              <label class="btn btn-grad btn-sm mt-2"><i class="bi bi-upload me-2"></i>Upload Excel<input type="file" class="d-none excel-alt" accept=".xlsx,.xls,.csv" /></label>
+            </div>
+          </div>
+          <p class="cc-source" id="dataSourceLabel">Sample dataset loaded — upload the Collection Sheet to go live.</p>
+        </header>
+
+        <!-- STAT CARDS -->
+        <div class="kpi-grid cc-stats" id="kpiGrid"></div>
+
+        <!-- QUICK ACTIONS -->
+        <div class="cc-block">
+          <div class="cc-block-head"><h3><i class="bi bi-lightning-charge-fill"></i> Quick Actions</h3></div>
+          <div class="qa-grid" id="quickActions"></div>
         </div>
-        <div class="kpi-grid" id="kpiGrid"></div>
-        <div class="row g-3 mt-1">
-          <div class="col-xl-8"><div class="glass p-3 h-100"><div class="card-head"><h3>Collection Progress by Section</h3><button class="chip" data-dlchart="chartSection">PNG</button></div><canvas id="chartSection" height="140"></canvas></div></div>
-          <div class="col-xl-4"><div class="glass p-3 h-100"><div class="card-head"><h3>Rank Distribution</h3><button class="chip" data-dlchart="chartRank">PNG</button></div><canvas id="chartRank" height="200"></canvas></div></div>
+
+        <!-- COMMAND PANEL -->
+        <div class="cc-block">
+          <div class="cc-block-head"><h3><i class="bi bi-shield-shaded"></i> Military Status Board</h3><span class="cc-live"><i></i>Operational</span></div>
+          <div class="cmd-grid" id="commandPanel"></div>
+        </div>
+
+        <!-- CHARTS -->
+        <div class="cc-block">
+          <div class="cc-block-head"><h3><i class="bi bi-graph-up-arrow"></i> Interactive Analytics</h3></div>
+          <div class="row g-3">
+            <div class="col-xl-8"><div class="glass cc-card h-100"><div class="card-head"><h3>Collection Progress by Section</h3><button class="chip" data-dlchart="chartSection">PNG</button></div><canvas id="chartSection" height="150"></canvas></div></div>
+            <div class="col-xl-4"><div class="glass cc-card h-100"><div class="card-head"><h3>Rank Distribution</h3><button class="chip" data-dlchart="chartRank">PNG</button></div><canvas id="chartRank" height="210"></canvas></div></div>
+            <div class="col-lg-6 col-xl-4"><div class="glass cc-card h-100"><div class="card-head"><h3>District Comparison</h3><button class="chip" data-dlchart="chartDistrict">PNG</button></div><canvas id="chartDistrict" height="200"></canvas></div></div>
+            <div class="col-lg-6 col-xl-4"><div class="glass cc-card h-100"><div class="card-head"><h3>Trade Distribution</h3><button class="chip" data-dlchart="chartTrade">PNG</button></div><canvas id="chartTrade" height="200"></canvas></div></div>
+            <div class="col-xl-4"><div class="glass cc-card h-100"><div class="card-head"><h3>Collection Progress Trend</h3><button class="chip" data-dlchart="chartProgress">PNG</button></div><canvas id="chartProgress" height="200"></canvas></div></div>
+          </div>
+        </div>
+
+        <!-- PERSONNEL STATUS BOARD -->
+        <div class="cc-block">
+          <div class="cc-block-head"><h3><i class="bi bi-people-fill"></i> Personnel Analytics</h3></div>
+          <div class="sb-grid" id="statusBoard"></div>
+        </div>
+
+        <!-- SECTION OVERVIEW -->
+        <div class="cc-block">
+          <div class="cc-block-head"><h3><i class="bi bi-diagram-3-fill"></i> Section Overview</h3></div>
+          <div class="row g-3" id="dashSections"></div>
+        </div>
+
+        <!-- TIMELINE + RECENT -->
+        <div class="cc-block">
+          <div class="row g-3">
+            <div class="col-xl-6"><div class="glass cc-card h-100"><div class="card-head"><h3>Latest Activity</h3></div><ul class="cc-timeline" id="activityTimeline"></ul></div></div>
+            <div class="col-xl-6"><div class="glass cc-card h-100"><div class="card-head"><h3>Recent Updates</h3></div><div class="cc-recent" id="recentUpdates"></div></div></div>
+          </div>
+        </div>
+
+        <div class="cc-foot glass">
+          <img src="assets/logo.png" alt="" />
+          <div>
+            <strong>35 ST Battalion — Personnel Management System</strong>
+            <span>Enterprise Command Edition · Excel-driven · 100% static</span>
+          </div>
+          <span class="cc-foot-sys" id="footSys">System nominal</span>
         </div>
       </section>
+
 
       <!-- SECTIONS -->
       <section class="view d-none" id="view-sections">
