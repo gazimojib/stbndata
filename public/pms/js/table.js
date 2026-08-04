@@ -3,7 +3,7 @@
 'use strict';
 
 function renderFilters() {
-  const cats = PMS.state.meta.categorical.slice(0, 6);
+  const cats = PMS.state.meta.categorical.slice(0, 16);
   $('#filterZone').innerHTML = cats.map(c => `
     <select class="form-select form-select-sm" data-filter="${esc(c)}" aria-label="Filter ${esc(c)}">
       <option value="">${esc(c)}: All</option>
