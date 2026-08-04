@@ -3,9 +3,8 @@
 
 /* ---------- master render ---------- */
 function renderAll() {
-  renderKPIs();
+  renderDashboard();
   renderSections();
-  renderDashCharts();
   renderFilters();
   renderColMenu();
   renderTable();
